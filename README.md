@@ -10,4 +10,4 @@ How-to:
 * To add aliases to a tiddler, create an "aliases" field and add as many aliases as you desire. For one single single-word aliases, no brackets are needed. For several aliases, use double square brackets to separate aliases (eg. [[alias1]] [[another alias]] ).
 
 Change log:
-210524: The 'Missing tiddler' tool was populated with aliases, limiting its usefulness. The problem is corrected on versions TiddlyWiki 5.1.23 and above, while behaviour is unchanged on prior versions. The problem is corrected on recent versions of TiddlyWiki by adapting the filter used in [[$:/core/Filters/Missing]] by using the "enlist-input" function, which is available only on TiddlyWiki 5.1.23 and above.
+* 210524: The 'Missing tiddler' tool was populated with aliases, limiting its usefulness. The problem is corrected on versions TiddlyWiki 5.1.23 and above, while behaviour is unchanged on prior versions. The problem is corrected on recent versions of TiddlyWiki by adapting the filter used in [[$:/core/Filters/Missing]] by using the "enlist-input" function, which is available only on TiddlyWiki 5.1.23 and above.
