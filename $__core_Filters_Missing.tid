@@ -1,0 +1,6 @@
+created: 20210524123520772
+description: {{$:/language/Filters/Missing}}
+filter: [all[missing]sort[title]]-[all[tiddlers]has[aliases]get[aliases]enlist-input[]]
+modified: 20210524123526136
+tags: $:/tags/Filter
+title: $:/core/Filters/Missing

@@ -1,0 +1,80 @@
+created: 20210524134146100
+modified: 20210525083943735
+title: $:/Aliases
+
+This tool makes it easy to add an "aliases" field to tiddlers without aliases, to edit the aliases of these tiddlers or any others that have been modified during the session, as well as to investigate any missing tiddlers.
+
+<!--Adapted from Mat von TWaddle's AliasTids's AliasesOverview tool – http://aliastids.tiddlyspot.com/-->
+
+!! Tiddlers without aliases
+
+<table style="width:100%">
+<tr><th>tiddlers without aliases</th><th></th></tr>
+<tr>
+<td style="padding:0">
+   <$select tiddler='$:/temp/addaliasfield' size='15' class="aliases-select"
+actions="""<$set name=tid value={{$:/temp/addaliasfield}}><$action-setfield $tiddler=<<tid>> $field=aliases $value=""></$set>""">
+   <$list filter='[all[tiddlers]!is[system]!has:field[aliases]!tag[0diary]!tag[foo1]!tag[foo2]sort[]]'>
+      <option><$view field='title'/></option>
+   </$list>
+   </$select>
+</td>
+<td style="text-align:left; vertical-align:top;">
+   Select titles to give them an `aliases` field which<br> makes the tiddler show up in the table below
+</td>
+</tr>
+</table>
+
+(You can manually customize any tags that you want excluded from this table by editing the filter. Simply repeat the `!tag[foo1]!tag[foo2]`… filter with as many tags as you want.)
+
+!! Alias editor
+
+Displayed below are all tiddlers modified during the session that already have an "aliases field", including of course those you will have added an "aliases" field to by clicking on in the table above.
+
+Don't forget the double square brackets in the aliases!
+
+<table class="aliastids-table aliastids-table-fullwidth" style="width:100%" >
+<tr>
+<td style="vertical-align:top; padding:0">
+   <table class="aliastids-table aliastids-table-aliases">
+   <tr><th>tiddler</th><th style="width:100%;">aliases editor</th></tr>
+   <$list filter="[has:field[aliases]!has[draft.of]haschanged[]]">
+   <tr>
+   <td><$link to={{!!title}}><$view field=title/></$link></td>
+   <td style="padding:0"><$edit-text tiddler={{!!title}} field=aliases class="aliastids-editor"/></td>
+   </tr>
+   </$list>
+   </table>
+</td>
+</tr>
+</table>
+
+!! Missing tiddler or alias
+
+<table class="aliastids-table aliastids-table-fullwidth"Aliases overview
+<tr>
+<td style="vertical-align:top; padding:0; width:100%;">
+   <table  class="aliastids-table aliastids-table-missing" style="width:100%">
+      <tr><th>missing</th><th style="width:100%;">appears in</th></tr>
+      <$set name=allaliases filter="[all[tiddlers]get[aliases]]" select=0>
+      <$list filter="[all[missing]sort[title]]-[all[tiddlers]has[aliases]get[aliases]enlist-input[]]" >
+         <tr><td><$link to={{!!title}}><$view field=title/></$link></td>
+         <td>
+         <$list filter="[!is[system]search:text::literal,casesensitive{!!title}!has[draft.of]!aliases{!!title}]" >
+                  <$link to={{!!title}}><$view field=title/> </$link>
+             </$list>
+         </td>
+         </tr>
+      </$list>
+      </$set>
+   </table>
+</td>
+</table>
+
+<style>
+.aliastids-editor {border:0; margin-left:5px; width:95%}
+.aliastids-table {margin:0}
+.aliastids-table-aliases {border-right:1px solid silver;}
+.aliastids-table-missing {border-left:1px solid silver; margin-left:-1px; width:100%; }
+.aliastids-table-fullwidth, .aliases-select {width:100%; border:0;}
+</style>
