@@ -5,6 +5,7 @@
     "version": "5.2.3",
     "core-version": ">=5.2.3",
     "plugin-type": "plugin",
+    "plugin-priority": 1,
 	"list": "",
     "source": "https://github.com/mklauber/tiddly-aliases"
 }
