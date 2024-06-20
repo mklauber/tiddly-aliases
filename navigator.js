@@ -1,5 +1,5 @@
 /*\
-title: $:/my-customised-checkbox-widget.js
+title: $:/plugins/mklauber/aliases/navigator.js
 type: application/javascript
 module-type: widget-subclass
 
